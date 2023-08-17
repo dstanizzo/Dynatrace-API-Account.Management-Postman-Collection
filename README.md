@@ -3,7 +3,7 @@ Postman Collection for Dynatrace Account Management API.
 
 # How to
 
-1. ### Create an Oauth Client in Dynatrace
+1. ## Create an Oauth Client in Dynatrace
 
 - Open the User menu and select Account settings (in latest Dynatrace, Account Management).
 - On the top navigation bar, go to Identity & access management > OAuth clients.
@@ -23,7 +23,7 @@ Postman Collection for Dynatrace Account Management API.
   
      [Follow this Video for Reference](https://youtu.be/zrqtWOKz1CY?t=50)
   
-2. ### Create an Environment in Postman
+2. ## Create an Environment for your Collection in Postman
 
 ![Environment](https://github.com/dstanizzo/Dynatrace-API-Account.Management-Postman-Collection/blob/main/images/Environment.png)
 
@@ -33,7 +33,11 @@ Postman Collection for Dynatrace Account Management API.
      - **DT_ACCOUNT_URN**       Provided when you create the Oauth2 client in step 1.
      - **DT_UUID**              Same value of DT_ACCOUNT_URN but stripping the urn:account:
      - **DT_SCOPE**             A list of required scopes separated by a whitespace.
-     - **DT_TOKEN_URL**         :warning: **PLEASE DON'T CHANGE THIS VALUE** :warning: The URL https://sso.dynatrace.com/sso/oauth2/token where you need to obtain your Bearer token after create the Oauth2 client.
+     - **DT_TOKEN_URL**         :warning: **PLEASE DON'T CHANGE THIS VALUE** :warning: The URL _https://sso.dynatrace.com/sso/oauth2/token_ where you need to obtain your Bearer token after create the Oauth2 client.
      - **DT_TOKEN_NAME**        The name for your token.
      - **DT_TOKEN**             In this variable you will store your assigned dynamic token.
-     - **DT_HOST**              :warning: **PLEASE DON'T CHANGE THIS VALUE** :warning: The URL of the Dynatrace API for Account Management.
+     - **DT_HOST**              :warning: **PLEASE DON'T CHANGE THIS VALUE** :warning: The URL _api.dynatrace.com_ of the Dynatrace API for Account Management.
+    
+3. ## Import Dynatrace Account Management Collection
+
+   
