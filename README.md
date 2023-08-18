@@ -1,9 +1,9 @@
-# Dynatrace-API-Account.Management-Postman-Collection
-Postman Collection for Dynatrace Account Management API.
+# Dynatrace API: Account Management Postman Collection
+Postman Collection for Dynatrace Account Management API with all the explanation and support to use the new Oauth2 client.
 
 # How to
 
-## 1. Create an Oauth Client in Dynatrace
+## 1. Create an Oauth2 Client in Dynatrace
 
    - Open the User menu and select Account settings (in latest Dynatrace, Account Management).
    - On the top navigation bar, go to Identity & access management > OAuth clients.
@@ -64,7 +64,7 @@ Postman Collection for Dynatrace Account Management API.
    - :warning: **BE SURE TO SELECT ALL YOUR TOKEN** :warning: And then select Set as variable.
    - Choose the **DT_TOKEN** variable to store your new Bearer Token.
 
-## 5. Ready
+## 5. Ready, Set, Go
 
    ![Get Ready](https://github.com/dstanizzo/Dynatrace-API-Account.Management-Postman-Collection/blob/main/images/Using.Collection.png)
 
