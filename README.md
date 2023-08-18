@@ -49,7 +49,7 @@ Thanks to my fellow DynaMight [Patrick Hofmann](https://github.com/pahofmann) fo
 
    ![Import Collection](https://github.com/dstanizzo/Dynatrace-API-Account.Management-Postman-Collection/blob/main/images/Import.png)
 
-   - Download the JSON from the repository.
+   - Download the [Dynatrace Account Management](https://github.com/dstanizzo/Dynatrace-API-Account.Management-Postman-Collection/blob/main/Dynatrace%20Account%20Management%20API%20v1%20Collection/Dynatrace%20Account%20Management%20API%20v1.json) JSON from the repository.
    - Select Collections.
    - Click on Import and choose the previously downloaded JSON.
    - Your Dynatrace Account Management API v1 Collection has been added to your collection.
