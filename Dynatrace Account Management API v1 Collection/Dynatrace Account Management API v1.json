@@ -1,0 +1,2392 @@
+{
+	"info": {
+		"_postman_id": "ed1e439d-a4a3-4f10-bbb1-287580967746",
+		"name": "Dynatrace Account Management API v1",
+		"description": "The enterprise management API for Dynatrace SaaS enables automation of operational tasks related to user access and environment lifecycle management.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28970908"
+	},
+	"item": [
+		{
+			"name": "User management",
+			"item": [
+				{
+					"name": "{email}",
+					"item": [
+						{
+							"name": "Lists all groups of a user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users/:email",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"users",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "(Required) The email address of the required user."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Adds a user to groups.",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  \"string\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users/:email",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"users",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "(Required) The email address of the required user."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Removes a user from an account",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users/:email",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"users",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "(Required) The email address of the required user."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sets group membership of a user.",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  \"string\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users/:email/groups",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"users",
+										":email",
+										"groups"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "(Required) The email address of the required user."
+										}
+									]
+								},
+								"description": "Any existing membership is overwritten.\n\nThe user will be removed from any group that is not specified in the body."
+							},
+							"response": []
+						},
+						{
+							"name": "Removes a user from groups",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users/:email?group-uuid=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"users",
+										":email"
+									],
+									"query": [
+										{
+											"key": "group-uuid",
+											"value": "<string>",
+											"description": "To specify several groups, use the following format: group-uuid=aaaaaa&group-uuid=bbbb."
+										}
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "(Required) The email address of the required user."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Lists all users of an account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "service-users",
+									"value": "<boolean>",
+									"description": "Specifies whether service users are included in results. (true/false)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates a new user in an account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Group management",
+			"item": [
+				{
+					"name": "{groupUuid}",
+					"item": [
+						{
+							"name": "Lists all members of a group",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid",
+										"users"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edits a user group",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"uuid\": \"string\",\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"federatedAttributeValues\": [\r\n    \"string\"\r\n  ],\r\n  \"owner\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletes a user group",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Lists all user groups of an account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates new user groups",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\": \"string\",\r\n    \"description\": \"string\",\r\n    \"federatedAttributeValues\": [\r\n      \"string\"\r\n    ],\r\n    \"owner\": {}\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Permission management",
+			"item": [
+				{
+					"name": "{groupUuid}",
+					"item": [
+						{
+							"name": "Lists all permissions of a user group",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid/permissions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid",
+										"permissions"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sets permissions of a user group",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"permissionName\": \"account-company-info\",\r\n    \"scope\": \"string\",\r\n    \"scopeType\": \"account\"\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid/permissions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid",
+										"permissions"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								},
+								"description": "Existing permissions are overwritten."
+							},
+							"response": []
+						},
+						{
+							"name": "Assigns permissions to a user group",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"permissionName\": \"account-company-info\",\r\n    \"scope\": \"string\",\r\n    \"scopeType\": \"account\"\r\n  }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid/permissions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid",
+										"permissions"
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								},
+								"description": "Existing permissions remain unaffected.\n\nExisting permissions remain unaffected."
+							},
+							"response": []
+						},
+						{
+							"name": "Removes a permission from a user group",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/groups/:groupUuid/permissions?scope=<string>&permission-name=<string>&scope-type=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"groups",
+										":groupUuid",
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "scope",
+											"value": "<string>",
+											"description": "(Required) The scope of the permission to be deleted. Depending on the type of the scope, specify one of the following:\n\n    account: The UUID of the account.\n    tenant: The ID of the environment.\n    management-zone: The ID of the management zone from an environment in {environment-id}:{management-zone-id} format.\n"
+										},
+										{
+											"key": "permission-name",
+											"value": "<string>",
+											"description": "(Required) The name of the permission to be deleted.\n\nAvailable values : account-company-info, account-user-management, account-viewer, tenant-viewer, tenant-manage-settings, tenant-agent-install, tenant-logviewer, tenant-view-sensitive-request-data, tenant-configure-request-capture-data, tenant-replay-sessions-with-masking, tenant-replay-sessions-without-masking, tenant-manage-security-problems, tenant-view-security-problems, tenant-manage-support-tickets"
+										},
+										{
+											"key": "scope-type",
+											"value": "<string>",
+											"description": "(Required) The scope type of the permission to be deleted.\n\nAvailable values : account, tenant, management-zone"
+										}
+									],
+									"variable": [
+										{
+											"key": "groupUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user group."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Policy management",
+			"item": [
+				{
+					"name": "{levelType}",
+					"item": [
+						{
+							"name": "{levelId}",
+							"item": [
+								{
+									"name": "{groupUuid}",
+									"item": [
+										{
+											"name": "Lists all policies for a user group",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/groups/:groupUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														"groups",
+														":groupUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "groupUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required user group."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Updates policies for a user group",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"policyUuids\": [\r\n    \"string\"\r\n  ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/groups/:groupUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														"groups",
+														":groupUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "groupUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required user group."
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "{policyUuid}",
+									"item": [
+										{
+											"name": "{groupUuid}",
+											"item": [
+												{
+													"name": "Get policy bindings within a level - Groups",
+													"request": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid/:groupUuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"iam",
+																"v1",
+																"repo",
+																":levelType",
+																":levelId",
+																"bindings",
+																":policyUuid",
+																":groupUuid"
+															],
+															"variable": [
+																{
+																	"key": "levelType",
+																	"value": "<string>",
+																	"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+																},
+																{
+																	"key": "levelId",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+																},
+																{
+																	"key": "policyUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required policy."
+																},
+																{
+																	"key": "groupUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required user group."
+																}
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Append policy bindings within a level for a user group",
+													"request": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n  \"parameters\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  },\r\n  \"metadata\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  }\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid/:groupUuid",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"iam",
+																"v1",
+																"repo",
+																":levelType",
+																":levelId",
+																"bindings",
+																":policyUuid",
+																":groupUuid"
+															],
+															"variable": [
+																{
+																	"key": "levelType",
+																	"value": "<string>",
+																	"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+																},
+																{
+																	"key": "levelId",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+																},
+																{
+																	"key": "policyUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required policy."
+																},
+																{
+																	"key": "groupUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required user group."
+																}
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Deletes a policy binding from a user group",
+													"request": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid/:groupUuid?forceMultiple=<boolean>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"iam",
+																"v1",
+																"repo",
+																":levelType",
+																":levelId",
+																"bindings",
+																":policyUuid",
+																":groupUuid"
+															],
+															"query": [
+																{
+																	"key": "forceMultiple",
+																	"value": "<boolean>",
+																	"description": "(Required) Forces multiple in case delete by parameters and metadata query"
+																}
+															],
+															"variable": [
+																{
+																	"key": "levelType",
+																	"value": "<string>",
+																	"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+																},
+																{
+																	"key": "levelId",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+																},
+																{
+																	"key": "policyUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required policy."
+																},
+																{
+																	"key": "groupUuid",
+																	"value": "<string>",
+																	"description": "(Required) The ID of the required user group."
+																}
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Gets a policy",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/:policyUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"policies",
+														":policyUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Updates a policy",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"tags\": [\r\n    \"string\"\r\n  ],\r\n  \"statementQuery\": \"string\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/:policyUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"policies",
+														":policyUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Validates the payload for the Updates a policy request",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"tags\": [\r\n    \"string\"\r\n  ],\r\n  \"statementQuery\": \"string\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/validation/:policyUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"policies",
+														"validation",
+														":policyUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Deletes a policy",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/:policyUuid?force=<boolean>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"policies",
+														":policyUuid"
+													],
+													"query": [
+														{
+															"key": "force",
+															"value": "<boolean>",
+															"description": "(Required) Set to true to delete a policy that is still in use."
+														}
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get policy bindings within a level",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														":policyUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Adds policy bindings to a level",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"groups\": [\r\n    \"string\"\r\n  ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														":policyUuid"
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Deletes all bindings of a policy",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/:policyUuid?forceMultiple=<boolean>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														":policyUuid"
+													],
+													"query": [
+														{
+															"key": "forceMultiple",
+															"value": "<boolean>",
+															"description": "(Required) Forces multiple in case delete by parameters and metadata query"
+														}
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get policy bindings within descendants of a level",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings/descendants/:policyUuid?page=<number>&size=<number>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"iam",
+														"v1",
+														"repo",
+														":levelType",
+														":levelId",
+														"bindings",
+														"descendants",
+														":policyUuid"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "<number>"
+														},
+														{
+															"key": "size",
+															"value": "<number>"
+														}
+													],
+													"variable": [
+														{
+															"key": "levelType",
+															"value": "<string>",
+															"description": "(Required) The type of the policy level. The following values are available:\n\n    account: An account policy applies to all environments of an account.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+														},
+														{
+															"key": "levelId",
+															"value": "<string>",
+															"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+														},
+														{
+															"key": "policyUuid",
+															"value": "<string>",
+															"description": "(Required) The ID of the required policy."
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Gets effective permissions for a user or group",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/resolution/:levelType/:levelId/effectivepermissions?entityType=<string>&entityId=<string>&explain=<boolean>&services=<array[string]>&page=<number>&size=<number>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"resolution",
+												":levelType",
+												":levelId",
+												"effectivepermissions"
+											],
+											"query": [
+												{
+													"key": "entityType",
+													"value": "<string>",
+													"description": "(Required) The following values are available:\n\n    user\n    group\n"
+												},
+												{
+													"key": "entityId",
+													"value": "<string>",
+													"description": "(Required) Entity ID"
+												},
+												{
+													"key": "explain",
+													"value": "<boolean>",
+													"description": "(Required) Add detail"
+												},
+												{
+													"key": "services",
+													"value": "<array[string]>",
+													"description": "Policies for given services will be returned"
+												},
+												{
+													"key": "page",
+													"value": "<number>"
+												},
+												{
+													"key": "size",
+													"value": "<number>"
+												}
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Lists all policies for a level, including inherited from higher levels",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/aggregate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"policies",
+												"aggregate"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Lists all native policies of a level",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies?name=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"policies"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "Policy name. Only policies that are of equal name will be returned."
+												}
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creates a new policy",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"tags\": [\r\n    \"string\"\r\n  ],\r\n  \"statementQuery\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"policies"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Validates the payload for the Creates a new policy  request",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"tags\": [\r\n    \"string\"\r\n  ],\r\n  \"statementQuery\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/policies/validation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"policies",
+												"validation"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\n\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Lists all policy bindings of a level",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"bindings"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updates policy bindings of a level",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"policyBindings\": [\r\n    {\r\n      \"policyUuid\": \"string\",\r\n      \"groups\": [\r\n        \"string\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"bindings"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deletes all policy bindings from a level",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/iam/v1/repo/:levelType/:levelId/bindings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"iam",
+												"v1",
+												"repo",
+												":levelType",
+												":levelId",
+												"bindings"
+											],
+											"variable": [
+												{
+													"key": "levelType",
+													"value": "<string>",
+													"description": "(Required) The type of the policy level. The following values are available:\n    global: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace.\n    account: An account policy applies to all environments of an account.\n    environment: An environment policy applies to a specific environment.\nEach level inherits the policies of the higher level and extends them with its own policies."
+												},
+												{
+													"key": "levelId",
+													"value": "<string>",
+													"description": "(Required) The ID of the policy level. Use one of the following values, depending on the level type:\n    global: use the global value.\n    account: use the UUID of the account.\n    environment: use the ID of the environment.\n"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Service user management",
+			"item": [
+				{
+					"name": "{userUuid }",
+					"item": [
+						{
+							"name": "Removes service user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/service-users/:userUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"iam",
+										"v1",
+										"accounts",
+										"{{DT_UUID}}",
+										"service-users",
+										":userUuid"
+									],
+									"variable": [
+										{
+											"key": "userUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the required user."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Creates a new service user in an account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/service-users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"service-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get service users assigned to account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/iam/v1/accounts/{{DT_UUID}}/service-users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"iam",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"service-users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Environment management",
+			"item": [
+				{
+					"name": "Lists all environments and management zones of an account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/env/v1/accounts/{{DT_UUID}}/environments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"env",
+								"v1",
+								"accounts",
+								"{{DT_UUID}}",
+								"environments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Dynatrace Platform Subscription",
+			"item": [
+				{
+					"name": "{subscriptionUuid}",
+					"item": [
+						{
+							"name": "Get specific subscription by uuid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/:subscriptionUuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"sub",
+										"v2",
+										"accounts",
+										"{{DT_UUID}}",
+										"subscriptions",
+										":subscriptionUuid"
+									],
+									"variable": [
+										{
+											"key": "subscriptionUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the requested subscription"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get usage summary grouped by environment for a given subscription",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/:subscriptionUuid/environments/usage?startTime=<ISO string>&endTime=<ISO string>&environmentIds=<array-string>&capabilityKeys=<array-string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"sub",
+										"v2",
+										"accounts",
+										"{{DT_UUID}}",
+										"subscriptions",
+										":subscriptionUuid",
+										"environments",
+										"usage"
+									],
+									"query": [
+										{
+											"key": "startTime",
+											"value": "<ISO string>",
+											"description": "(Required) Date as ISO string"
+										},
+										{
+											"key": "endTime",
+											"value": "<ISO string>",
+											"description": "(Required) Date as ISO string"
+										},
+										{
+											"key": "environmentIds",
+											"value": "<array-string>"
+										},
+										{
+											"key": "capabilityKeys",
+											"value": "<array-string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "subscriptionUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the requested subscription"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get aggregated usage data grouped by date for a given subscription",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/:subscriptionUuid/usage?environmentIds=<array-string>&capabilityKeys=<array-string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"sub",
+										"v2",
+										"accounts",
+										"{{DT_UUID}}",
+										"subscriptions",
+										":subscriptionUuid",
+										"usage"
+									],
+									"query": [
+										{
+											"key": "environmentIds",
+											"value": "<array-string>"
+										},
+										{
+											"key": "capabilityKeys",
+											"value": "<array-string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "subscriptionUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the requested subscription"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get aggregated cost data grouped by date for a given subscription",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/:subscriptionUuid/cost?environmentIds=<array-string>&capabilityKeys=<array-string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"sub",
+										"v2",
+										"accounts",
+										"{{DT_UUID}}",
+										"subscriptions",
+										":subscriptionUuid",
+										"cost"
+									],
+									"query": [
+										{
+											"key": "environmentIds",
+											"value": "<array-string>"
+										},
+										{
+											"key": "capabilityKeys",
+											"value": "<array-string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "subscriptionUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the requested subscription"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get cost summary grouped by environment for a given subscription",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/:subscriptionUuid/environments/cost?startTime=<ISO string>&endTime=<ISO string>&environmentIds=<array-string>&capabilityKeys=<array-string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"sub",
+										"v2",
+										"accounts",
+										"{{DT_UUID}}",
+										"subscriptions",
+										":subscriptionUuid",
+										"environments",
+										"cost"
+									],
+									"query": [
+										{
+											"key": "startTime",
+											"value": "<ISO string>",
+											"description": "(Required) Date as ISO string"
+										},
+										{
+											"key": "endTime",
+											"value": "<ISO string>",
+											"description": "(Required) Date as ISO string"
+										},
+										{
+											"key": "environmentIds",
+											"value": "<array-string>"
+										},
+										{
+											"key": "capabilityKeys",
+											"value": "<array-string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "subscriptionUuid",
+											"value": "<string>",
+											"description": "(Required) The UUID of the requested subscription"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get list of subscriptions by account uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sub",
+								"v2",
+								"accounts",
+								"{{DT_UUID}}",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all notification events for a given subscription",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sub",
+								"v2",
+								"accounts",
+								"{{DT_UUID}}",
+								"subscriptions",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get forecast snapshot for a given account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sub/v2/accounts/{{DT_UUID}}/subscriptions/forecast",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sub",
+								"v2",
+								"accounts",
+								"{{DT_UUID}}",
+								"subscriptions",
+								"forecast"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reference data",
+			"item": [
+				{
+					"name": "Lists all available time zones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ref/v1/time-zones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ref",
+								"v1",
+								"time-zones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all available regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ref/v1/regions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ref",
+								"v1",
+								"regions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all available permissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ref/v1/account/permissions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ref",
+								"v1",
+								"account",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "{{DT_TOKEN_NAME}}",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{DT_TOKEN_URL}}",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "{{DT_SCOPE}}",
+				"type": "string"
+			},
+			{
+				"key": "resource",
+				"value": {
+					"359647ef-0e25-4c05-9834-7386b84157c0": "{{DT_ACCOUNT_URN}}"
+				},
+				"type": "any"
+			},
+			{
+				"key": "clientId",
+				"value": "{{DT_CLIENT_ID}}",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{DT_CLIENT_SECRET}}",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://{{DT_HOST}}",
+			"type": "default"
+		}
+	]
+}
