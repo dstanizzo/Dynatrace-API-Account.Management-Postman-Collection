@@ -1,5 +1,8 @@
 # Dynatrace API: Account Management Postman Collection
-Postman Collection for Dynatrace Account Management API with all the explanation and support to use the new Oauth2 client.
+[Postman](https://www.postman.com/) Collection for Dynatrace Account Management API with all the explanation and support to use the new Oauth2 client.
+I've added variables for security and to make them easy to use with multiple Dynatrace Accounts by utilizing [Postman Environments](https://learning.postman.com/docs/sending-requests/managing-environments/).
+
+Thanks to my fellow DynaMight [Patrick Hofmann](https://github.com/pahofmann) for his great work creating the [first collections](https://github.com/pahofmann/dynatrace-postman-collections) for the Dynatrace API. Your work inspire me.
 
 # How to
 
