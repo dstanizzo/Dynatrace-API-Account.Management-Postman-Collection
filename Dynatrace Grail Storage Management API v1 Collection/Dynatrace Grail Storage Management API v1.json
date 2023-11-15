@@ -1,0 +1,342 @@
+{
+	"info": {
+		"name": "Dynatrace Grail Storage Management API v1",
+		"description": "The Dynatrace Bucket Management API for Grail.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+			},
+	"item": [
+		{
+			"name": "Bucket Definitions",
+			"item": [
+				{
+					"name": "{bucketname}",
+					"item": [
+						{
+							"name": "Get bucket definition by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/bucket-definitions/:bucketName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bucket-definitions",
+										":bucketName"
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "<string>",
+											"description": "(Required) Bucket Name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a bucket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"bucketName\": \"custom_logs\",\r\n  \"table\": \"logs\",\r\n  \"displayName\": \"Custom logs bucket (updated)\",\r\n  \"status\": \"active\",\r\n  \"retentionDays\": 10,\r\n  \"version\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bucket-definitions/:bucketName?optimistic-locking-version=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bucket-definitions",
+										":bucketName"
+									],
+									"query": [
+										{
+											"key": "optimistic-locking-version",
+											"value": "<integer>",
+											"description": "(Required) Define on which version the updated data is based on"
+										}
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "<string>",
+											"description": "(Required) Bucket Name"
+										}
+									]
+								},
+								"description": "Update a bucket. Update one of the following fields or both:\n\n- displayName: descriptive name of the bucket\n- retentionDays: retention period in days (important note: the new retention days will also apply  \n    to existing records. Shortening the retention period could result in data deletion!)"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a bucket",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/bucket-definitions/:bucketName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bucket-definitions",
+										":bucketName"
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "<string>",
+											"description": "(Required) Bucket Name"
+										}
+									]
+								},
+								"description": "Starts deleting a bucket.\n\nDeletes the bucket and all data stored in the bucket.  \nThis operation can not be undone."
+							},
+							"response": []
+						},
+						{
+							"name": "Update a bucket partially",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"displayName\": \"Custom logs bucket (updated)\",\r\n  \"retentionDays\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/bucket-definitions/:bucketName?optimistic-locking-version=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bucket-definitions",
+										":bucketName"
+									],
+									"query": [
+										{
+											"key": "optimistic-locking-version",
+											"value": "<integer>",
+											"description": "(Required) Define on which version the updated data is based on"
+										}
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "<string>",
+											"description": "(Required) Bucket Name"
+										}
+									]
+								},
+								"description": "Update one of the following fields or both:\n\n- displayName: descriptive name of the bucket\n    \n- retentionDays: retention period in days (important note: the new retention days will also apply  \n    to existing records. Shortening the retention period could result in data deletion!)"
+							},
+							"response": []
+						},
+						{
+							"name": "Truncate a bucket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/bucket-definitions/:bucketName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bucket-definitions",
+										":bucketName"
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "<string>:truncate",
+											"description": "(Required) Bucket Name. :truncate ⚠️ PLEASE DON'T CHANGE THIS VALUE ⚠️"
+										}
+									]
+								},
+								"description": "Removes the content of the given bucket.  \nOperation can be executed with all types of buckets."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all bucket definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/bucket-definitions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bucket-definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates a new bucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bucketName\": \"string\",\r\n  \"table\": \"logs\",\r\n  \"displayName\": \"Custom logs bucket\",\r\n  \"retentionDays\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bucket-definitions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bucket-definitions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "Bearer {{DT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "{{DT_TOKEN_NAME}}",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{DT_TOKEN_URL}}",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "{{DT_SCOPE}}",
+				"type": "string"
+			},
+			{
+				"key": "resource",
+				"value": {
+					"359647ef-0e25-4c05-9834-7386b84157c0": "{{DT_ACCOUNT_URN}}"
+				},
+				"type": "any"
+			},
+			{
+				"key": "clientId",
+				"value": "{{DT_CLIENT_ID}}",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{DT_CLIENT_SECRET}}",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://{{DT_SaaS_HOST}}/platform/storage/management/v1",
+			"type": "default"
+		}
+	]
+}
